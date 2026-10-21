@@ -3,7 +3,6 @@ import { ArrowRight, Eye, Github, Linkedin, Mail, Sparkles, Video } from "lucide
 import { portfolioData } from "../data/portfolioData";
 import { ResumeModal } from "./ResumeModal";
 import { DatabaseStatusBadge } from "./DatabaseStatusBadge";
-import { VoicePitchPlayer } from "./VoicePitchPlayer";
 import { VideoIntroModal } from "./VideoIntroModal";
 
 export const Hero: React.FC = () => {
@@ -45,12 +44,9 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Subheading / Tagline */}
-          <p className="text-base sm:text-lg text-slate-400 mb-6 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
             {personal.tagline}
           </p>
-
-          {/* Voice AI Pitch Player */}
-          <VoicePitchPlayer />
 
           {/* Call to Actions */}
           <div className="flex flex-wrap items-center justify-center gap-3.5 mb-10">
