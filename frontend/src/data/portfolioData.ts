@@ -6,6 +6,7 @@ export interface Project {
   tags: string[];
   features: string[];
   image?: string;
+  fallbackImage?: string;
   categoryBadge?: string;
   prodBadge?: string;
   metricHighlight?: string;
@@ -143,6 +144,7 @@ export const portfolioData = {
       liveUrl: "https://banking-dashboard-tau-lime.vercel.app/",
       githubUrl: "https://github.com/amitbuilds18/banking-dashboard",
       image: "/projects/navapay.jpg",
+      fallbackImage: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
       categoryBadge: "Full Stack",
       prodBadge: "PROD",
       metricHighlight: "ACID Row-Level Locking & 40% Query Acceleration",
@@ -179,6 +181,7 @@ export const portfolioData = {
       liveUrl: "https://ai-interview-taker.vercel.app",
       githubUrl: "https://github.com/amitbuilds18/AiInterviewTaker",
       image: "/projects/ai-interview.jpg",
+      fallbackImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
       categoryBadge: "AI & Cloud",
       prodBadge: "PROD",
       metricHighlight: "Sub-250ms Voice Streaming & Real-time Evaluation",
@@ -215,6 +218,7 @@ export const portfolioData = {
       liveUrl: "https://travel-career-ecosystem.vercel.app",
       githubUrl: "https://github.com/amitbuilds18/Unified-Travel-Multi-Company-Career-Ecosystem",
       image: "/projects/travel.jpg",
+      fallbackImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
       categoryBadge: "Full Stack",
       prodBadge: "PROD",
       metricHighlight: "500+ Corporate Records, Sub-150ms Latency",
@@ -251,6 +255,7 @@ export const portfolioData = {
       liveUrl: "https://e-commerce1-5u9.vercel.app/",
       githubUrl: "https://github.com/amitbuilds18/e-commerce1",
       image: "/projects/stylehub.jpg",
+      fallbackImage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80",
       categoryBadge: "Full Stack",
       prodBadge: "PROD",
       metricHighlight: "500+ SKUs • Stripe Webhooks & <3s SMS Alerts",
