@@ -59,6 +59,25 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Content Body */}
         <div className="flex-1 overflow-y-auto p-6 space-y-6">
+          {project.image && (
+            <div className="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[21/9]">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+              <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs">
+                <span className="font-mono text-[11px] text-slate-300 bg-slate-950/80 px-2.5 py-1 rounded-md border border-slate-800 backdrop-blur-sm truncate max-w-[240px] sm:max-w-none">
+                  {project.liveUrl}
+                </span>
+                <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-md border border-emerald-500/30 backdrop-blur-sm shrink-0">
+                  Production Verified
+                </span>
+              </div>
+            </div>
+          )}
+
           {/* Architecture Overview */}
           {project.architecture && (
             <div className="space-y-4">

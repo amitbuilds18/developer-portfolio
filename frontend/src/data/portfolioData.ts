@@ -5,6 +5,7 @@ export interface Project {
   description: string;
   tags: string[];
   features: string[];
+  image?: string;
   architecture?: {
     overview: string;
     flow: string[];
@@ -138,6 +139,7 @@ export const portfolioData = {
       },
       liveUrl: "https://banking-dashboard-tau-lime.vercel.app/",
       githubUrl: "https://github.com/amitbuilds18/banking-dashboard",
+      image: "/projects/navapay.jpg",
       featured: true,
     },
     {
@@ -170,6 +172,7 @@ export const portfolioData = {
       },
       liveUrl: "https://ai-interview-taker.vercel.app",
       githubUrl: "https://github.com/amitbuilds18/AiInterviewTaker",
+      image: "/projects/ai-interview.jpg",
       featured: true,
     },
     {
@@ -202,6 +205,7 @@ export const portfolioData = {
       },
       liveUrl: "https://travel-career-ecosystem.vercel.app",
       githubUrl: "https://github.com/amitbuilds18/Unified-Travel-Multi-Company-Career-Ecosystem",
+      image: "/projects/travel.jpg",
       featured: true,
     },
     {
@@ -234,6 +238,7 @@ export const portfolioData = {
       },
       liveUrl: "https://e-commerce1-5u9.vercel.app/",
       githubUrl: "https://github.com/amitbuilds18/e-commerce1",
+      image: "/projects/stylehub.jpg",
       featured: true,
     },
   ] as Project[],

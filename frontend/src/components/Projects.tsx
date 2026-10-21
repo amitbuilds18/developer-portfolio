@@ -176,6 +176,67 @@ export const Projects: React.FC<ProjectsProps> = ({
                     </div>
                   </div>
 
+                  {/* Product/Project Image Mockup Banner */}
+                  {project.image && (
+                    <div className="relative group/preview mb-5 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-lg">
+                      {/* Browser Window Mockup Bar */}
+                      <div className="flex items-center justify-between px-3 py-2 bg-slate-900/90 border-b border-slate-800 text-[11px] font-mono text-slate-400 select-none">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                        </div>
+                        <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-slate-950/80 border border-slate-800/80 text-slate-400 text-[10px] truncate max-w-[190px] sm:max-w-[240px]">
+                          <span className="text-emerald-400 font-bold">https://</span>
+                          <span className="truncate">{project.liveUrl.replace(/^https?:\/\//, "")}</span>
+                        </div>
+                        <div className="text-[10px] text-slate-500 flex items-center gap-1">
+                          <ExternalLink className="w-3 h-3 text-slate-400 group-hover/preview:text-indigo-400 transition-colors" />
+                        </div>
+                      </div>
+
+                      {/* Image Frame with Zoom & Hover Overlay */}
+                      <div
+                        className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900 cursor-pointer"
+                        onClick={() => setSelectedProject(project)}
+                      >
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover/preview:scale-105"
+                          loading="lazy"
+                        />
+                        {/* Vignette Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20 opacity-60 group-hover/preview:opacity-20 transition-opacity" />
+
+                        {/* Floating Quick Action Overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 backdrop-blur-[2px] bg-slate-950/40">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedProject(project);
+                            }}
+                            className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg flex items-center gap-1.5 transition-transform hover:scale-105 cursor-pointer"
+                          >
+                            <Cpu className="w-3.5 h-3.5" />
+                            Architecture
+                          </button>
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="px-3 py-1.5 rounded-lg bg-slate-900/90 hover:bg-slate-800 text-white text-xs font-semibold border border-slate-700 shadow-lg flex items-center gap-1.5 transition-transform hover:scale-105"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
+                            Live Demo
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Title & Tagline */}
                   <h4 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
                     {project.title}
