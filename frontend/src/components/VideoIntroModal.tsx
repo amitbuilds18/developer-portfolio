@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { X, Video, Sparkles, CheckCircle2, Play } from "lucide-react";
+import { X, Video, Sparkles, CheckCircle2 } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
 interface VideoIntroModalProps {
@@ -9,7 +9,6 @@ interface VideoIntroModalProps {
 
 export const VideoIntroModal: React.FC<VideoIntroModalProps> = ({ isOpen, onClose }) => {
   const [videoExists, setVideoExists] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // Check if /video-intro.mp4 exists
@@ -81,8 +80,6 @@ export const VideoIntroModal: React.FC<VideoIntroModalProps> = ({ isOpen, onClos
                 controls
                 autoPlay
                 className="w-full max-h-[460px] object-contain rounded-xl"
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
               />
             </div>
           ) : (

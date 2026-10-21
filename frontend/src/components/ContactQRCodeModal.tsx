@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import QRCode from "qrcode";
-import { X, QrCode, Download, Check, Smartphone, Sparkles } from "lucide-react";
+import { X, QrCode, Download, Check, Smartphone } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
 interface ContactQRCodeModalProps {
