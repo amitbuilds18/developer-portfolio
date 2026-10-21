@@ -1,5 +1,17 @@
 import React, { useState } from "react";
-import { ExternalLink, Github, CheckCircle2, Star, Cpu, Filter, X, Sparkles } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  CheckCircle2,
+  Star,
+  Cpu,
+  Filter,
+  X,
+  Sparkles,
+  Layers,
+  Zap,
+  TrendingUp,
+} from "lucide-react";
 import { portfolioData, Project } from "../data/portfolioData";
 import { ProjectModal } from "./ProjectModal";
 
@@ -132,29 +144,98 @@ export const Projects: React.FC<ProjectsProps> = ({
                 }`}
               >
                 <div>
-                  {/* Header Badge */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2">
-                      {project.featured ? (
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                          <Star className="w-3.5 h-3.5 fill-indigo-400" />
-                          Featured Project
-                        </span>
-                      ) : (
-                        <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
-                          Web Application
-                        </span>
-                      )}
+                  {/* Visual Project Banner (Exact Reference Layout from User Screenshot) */}
+                  {project.image && (
+                    <div className="relative group/preview mb-6 rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl">
+                      {/* Image Frame */}
+                      <div
+                        className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-950 cursor-pointer select-none"
+                        onClick={() => setSelectedProject(project)}
+                      >
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover/preview:scale-105"
+                          loading="lazy"
+                        />
 
-                      {activeSkillFilter && isMatch && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 animate-pulse">
-                          <Sparkles className="w-3 h-3" />
-                          Uses {activeSkillFilter}
-                        </span>
-                      )}
+                        {/* Dark Vignette Gradient for High Contrast (matches user image) */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-slate-950/70 pointer-events-none" />
+
+                        {/* Top Badges Row: Category on Left, PROD on Right */}
+                        <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none z-10">
+                          {/* Top Left: Category Badge with Layers Icon */}
+                          <div className="pointer-events-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950/80 backdrop-blur-md border border-slate-700/60 text-slate-100 text-xs font-semibold shadow-xl">
+                            <Layers className="w-3.5 h-3.5 text-indigo-400" />
+                            <span>{project.categoryBadge || "Full Stack"}</span>
+                          </div>
+
+                          {/* Top Right: PROD Badge with Lightning Icon */}
+                          <div className="pointer-events-auto inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-950/80 backdrop-blur-md border border-indigo-500/40 text-indigo-300 font-mono text-[11px] font-bold tracking-wider shadow-xl">
+                            <Zap className="w-3 h-3 text-indigo-400 fill-indigo-400" />
+                            <span>{project.prodBadge || "PROD"}</span>
+                          </div>
+                        </div>
+
+                        {/* Bottom Badge: Metric Highlight with TrendingUp Green Icon */}
+                        <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-center pointer-events-none z-10">
+                          <div className="pointer-events-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950/90 backdrop-blur-md border border-emerald-500/30 text-emerald-400 text-xs font-semibold shadow-2xl max-w-full truncate">
+                            <TrendingUp className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                            <span className="truncate">{project.metricHighlight || project.tagline}</span>
+                          </div>
+                        </div>
+
+                        {/* Interactive Hover Actions */}
+                        <div className="absolute inset-0 flex items-center justify-center gap-2.5 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 backdrop-blur-[3px] bg-slate-950/50 z-20">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedProject(project);
+                            }}
+                            className="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg flex items-center gap-1.5 transition-transform hover:scale-105 cursor-pointer"
+                          >
+                            <Cpu className="w-3.5 h-3.5" />
+                            <span>Architecture</span>
+                          </button>
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="px-3.5 py-1.5 rounded-lg bg-slate-900/95 hover:bg-slate-800 text-white text-xs font-semibold border border-slate-700 shadow-lg flex items-center gap-1.5 transition-transform hover:scale-105"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
+                            <span>Live Demo</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Header Title & External Links */}
+                  <div className="flex items-start justify-between gap-4 mb-2">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1.5">
+                        {project.featured && (
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                            <Star className="w-3 h-3 fill-indigo-400" />
+                            <span>Featured Application</span>
+                          </span>
+                        )}
+                        {activeSkillFilter && isMatch && (
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 animate-pulse">
+                            <Sparkles className="w-3 h-3" />
+                            Uses {activeSkillFilter}
+                          </span>
+                        )}
+                      </div>
+                      <h4 className="text-xl sm:text-2xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+                        {project.title}
+                      </h4>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5 shrink-0 pt-1">
                       <a
                         href={project.githubUrl}
                         target="_blank"
@@ -176,71 +257,6 @@ export const Projects: React.FC<ProjectsProps> = ({
                     </div>
                   </div>
 
-                  {/* Product/Project Image Mockup Banner */}
-                  {project.image && (
-                    <div className="relative group/preview mb-5 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-lg">
-                      {/* Browser Window Mockup Bar */}
-                      <div className="flex items-center justify-between px-3 py-2 bg-slate-900/90 border-b border-slate-800 text-[11px] font-mono text-slate-400 select-none">
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                          <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                        </div>
-                        <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-slate-950/80 border border-slate-800/80 text-slate-400 text-[10px] truncate max-w-[190px] sm:max-w-[240px]">
-                          <span className="text-emerald-400 font-bold">https://</span>
-                          <span className="truncate">{project.liveUrl.replace(/^https?:\/\//, "")}</span>
-                        </div>
-                        <div className="text-[10px] text-slate-500 flex items-center gap-1">
-                          <ExternalLink className="w-3 h-3 text-slate-400 group-hover/preview:text-indigo-400 transition-colors" />
-                        </div>
-                      </div>
-
-                      {/* Image Frame with Zoom & Hover Overlay */}
-                      <div
-                        className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900 cursor-pointer"
-                        onClick={() => setSelectedProject(project)}
-                      >
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover/preview:scale-105"
-                          loading="lazy"
-                        />
-                        {/* Vignette Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20 opacity-60 group-hover/preview:opacity-20 transition-opacity" />
-
-                        {/* Floating Quick Action Overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover/preview:opacity-100 transition-all duration-300 backdrop-blur-[2px] bg-slate-950/40">
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedProject(project);
-                            }}
-                            className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg flex items-center gap-1.5 transition-transform hover:scale-105 cursor-pointer"
-                          >
-                            <Cpu className="w-3.5 h-3.5" />
-                            Architecture
-                          </button>
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="px-3 py-1.5 rounded-lg bg-slate-900/90 hover:bg-slate-800 text-white text-xs font-semibold border border-slate-700 shadow-lg flex items-center gap-1.5 transition-transform hover:scale-105"
-                          >
-                            <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
-                            Live Demo
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Title & Tagline */}
-                  <h4 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
-                    {project.title}
-                  </h4>
                   <p className="text-sm font-medium text-indigo-400/90 mb-3">{project.tagline}</p>
                   <p className="text-sm text-slate-300 mb-5 leading-relaxed">{project.description}</p>
 

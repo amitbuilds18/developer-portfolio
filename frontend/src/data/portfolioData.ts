@@ -6,6 +6,9 @@ export interface Project {
   tags: string[];
   features: string[];
   image?: string;
+  categoryBadge?: string;
+  prodBadge?: string;
+  metricHighlight?: string;
   architecture?: {
     overview: string;
     flow: string[];
@@ -140,6 +143,9 @@ export const portfolioData = {
       liveUrl: "https://banking-dashboard-tau-lime.vercel.app/",
       githubUrl: "https://github.com/amitbuilds18/banking-dashboard",
       image: "/projects/navapay.jpg",
+      categoryBadge: "Full Stack",
+      prodBadge: "PROD",
+      metricHighlight: "ACID Row-Level Locking & 40% Query Acceleration",
       featured: true,
     },
     {
@@ -173,6 +179,9 @@ export const portfolioData = {
       liveUrl: "https://ai-interview-taker.vercel.app",
       githubUrl: "https://github.com/amitbuilds18/AiInterviewTaker",
       image: "/projects/ai-interview.jpg",
+      categoryBadge: "AI & Cloud",
+      prodBadge: "PROD",
+      metricHighlight: "Sub-250ms Voice Streaming & Real-time Evaluation",
       featured: true,
     },
     {
@@ -206,6 +215,9 @@ export const portfolioData = {
       liveUrl: "https://travel-career-ecosystem.vercel.app",
       githubUrl: "https://github.com/amitbuilds18/Unified-Travel-Multi-Company-Career-Ecosystem",
       image: "/projects/travel.jpg",
+      categoryBadge: "Full Stack",
+      prodBadge: "PROD",
+      metricHighlight: "500+ Corporate Records, Sub-150ms Latency",
       featured: true,
     },
     {
@@ -239,6 +251,9 @@ export const portfolioData = {
       liveUrl: "https://e-commerce1-5u9.vercel.app/",
       githubUrl: "https://github.com/amitbuilds18/e-commerce1",
       image: "/projects/stylehub.jpg",
+      categoryBadge: "Full Stack",
+      prodBadge: "PROD",
+      metricHighlight: "500+ SKUs • Stripe Webhooks & <3s SMS Alerts",
       featured: true,
     },
   ] as Project[],
