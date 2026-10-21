@@ -93,7 +93,16 @@ app.get("/api/messages", async (req: Request, res: Response) => {
 });
 
 // Start server and initialize database tables
-app.listen(PORT, async () => {
+const server = app.listen(PORT, async () => {
   console.log(`🚀 Portfolio backend running on http://localhost:${PORT}`);
   await initDB();
+});
+
+server.on("error", (err: any) => {
+  if (err.code === "EADDRINUSE") {
+    console.error(`\n⚠️ Port ${PORT} is already in use by another process.`);
+    console.error(`💡 Solution: Run "npx kill-port ${PORT}" to free it, or start on another port: "PORT=5001 npm start"\n`);
+  } else {
+    console.error("Server error:", err);
+  }
 });
