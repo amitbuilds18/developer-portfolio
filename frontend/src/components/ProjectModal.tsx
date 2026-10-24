@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { X, ExternalLink, Github, Cpu, ArrowRight, CheckCircle2, Layers } from "lucide-react";
+import { X, ExternalLink, Github, Cpu, ArrowRight, CheckCircle2, Layers, Lock } from "lucide-react";
 import { Project } from "../data/portfolioData";
 
 interface ProjectModalProps {
@@ -151,15 +151,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Footer Actions */}
         <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-slate-800 bg-slate-950/70">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-all"
-          >
-            <Github className="w-4 h-4" />
-            <span>GitHub Repository</span>
-          </a>
+          {project.githubUrl ? (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-all"
+            >
+              <Github className="w-4 h-4" />
+              <span>GitHub Repository</span>
+            </a>
+          ) : (
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-900/80 text-amber-300 border border-amber-500/30">
+              <Lock className="w-3.5 h-3.5 text-amber-400" />
+              <span>Private / Client Codebase</span>
+            </div>
+          )}
           <a
             href={project.liveUrl}
             target="_blank"

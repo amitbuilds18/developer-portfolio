@@ -11,6 +11,7 @@ import {
   Layers,
   Zap,
   TrendingUp,
+  Lock,
 } from "lucide-react";
 import { portfolioData, Project } from "../data/portfolioData";
 import { ProjectModal } from "./ProjectModal";
@@ -240,15 +241,24 @@ export const Projects: React.FC<ProjectsProps> = ({
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-                        title="View GitHub Repository"
-                      >
-                        <Github className="w-4 h-4" />
-                      </a>
+                      {project.githubUrl ? (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                          title="View GitHub Repository"
+                        >
+                          <Github className="w-4 h-4" />
+                        </a>
+                      ) : (
+                        <span
+                          className="p-2 rounded-lg text-amber-400/80 bg-slate-950/80 border border-amber-500/30 flex items-center gap-1 text-[11px] font-mono"
+                          title="Private / Client Codebase"
+                        >
+                          <Lock className="w-3.5 h-3.5 text-amber-400" />
+                        </span>
+                      )}
                       <a
                         href={project.liveUrl}
                         target="_blank"
@@ -326,15 +336,25 @@ export const Projects: React.FC<ProjectsProps> = ({
                         <ExternalLink className="w-3.5 h-3.5" />
                         <span>Live Demo</span>
                       </a>
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 hover:bg-slate-850 text-slate-200 hover:text-white border border-slate-800 transition-all"
-                      >
-                        <Github className="w-3.5 h-3.5" />
-                        <span>Source Code</span>
-                      </a>
+                      {project.githubUrl ? (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 hover:bg-slate-850 text-slate-200 hover:text-white border border-slate-800 transition-all"
+                        >
+                          <Github className="w-3.5 h-3.5" />
+                          <span>Source Code</span>
+                        </a>
+                      ) : (
+                        <div
+                          className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900/60 text-slate-400 border border-slate-800 select-none cursor-default"
+                          title="Client / Proprietary Codebase (Protected)"
+                        >
+                          <Lock className="w-3.5 h-3.5 text-amber-400" />
+                          <span>Private Codebase</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
