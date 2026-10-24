@@ -83,6 +83,8 @@ export const portfolioData = {
         { name: "bcrypt" },
         { name: "Rate Limiting" },
         { name: "PDFKit" },
+        { name: "Socket.IO (WebSockets)" },
+        { name: "Razorpay Gateway" },
         { name: "Twilio API" },
       ],
     },
@@ -298,6 +300,44 @@ export const portfolioData = {
       categoryBadge: "AI & Cloud",
       prodBadge: "PROD",
       metricHighlight: "Ollama LLM • PDF Document Chat & Rate-Limited APIs",
+      featured: true,
+    },
+    {
+      id: "rsk-quick-commerce",
+      title: "RSK — On-Demand Bakery, Sweets & Quick-Commerce Delivery Platform",
+      tagline: "Real-time delivery ecosystem with Socket.IO driver tracking, MSG91 OTP & Razorpay",
+      description:
+        "Architected a full-stack hyper-local delivery web platform for bakery, sweets, and dairy retail. Features live Socket.IO driver geolocation tracking, MSG91 mobile OTP auth, Neon PostgreSQL persistence, and tri-role dashboards for Customers, Store Admins, and Delivery Drivers.",
+      tags: ["Node.js", "Express", "PostgreSQL (Neon)", "Socket.IO", "Razorpay", "MSG91 OTP", "PWA", "Tailwind CSS"],
+      features: [
+        "Streamed bidirectional real-time order status updates and driver GPS coordinates using Socket.IO WebSockets",
+        "Programmed mobile-first OTP login flow integrated with MSG91 SMS gateway and fallback verification",
+        "Integrated Razorpay online payments with webhook verification alongside Cash on Delivery (COD) workflows",
+        "Engineered 3 dedicated role-based portals: Customer Storefront, Store Manager Catalog/Metrics, and Driver Delivery Hub",
+      ],
+      architecture: {
+        overview: "High-concurrency on-demand quick-commerce delivery architecture featuring bidirectional WebSocket telemetry, ACID relational order processing, and payment gateway webhooks.",
+        flow: [
+          "Customer PWA Storefront (Product Catalog, Cart & MSG91 Mobile OTP Auth)",
+          "WebSocket Gateway: Socket.IO bi-directional driver GPS telemetry & live order state synchronization",
+          "API & Business Logic: Express REST Microservices with Session Security",
+          "Database Engine: Neon Serverless PostgreSQL managing inventory, order transactions & customer addresses",
+          "Payment & SMS Gateways: Razorpay Webhooks (Online/COD) & MSG91 SMS Infrastructure"
+        ],
+        technicalHighlights: [
+          "Socket.IO WebSocket room multiplexing enabling sub-100ms driver coordinate broadcasting to customers",
+          "ACID-compliant order state machine guaranteeing linear state transitions (Placed -> Prepped -> Picked Up -> Delivered)",
+          "Role-based security middleware isolating Admin store metrics, Driver delivery feeds, and Customer order history",
+          "PWA-ready mobile responsive frontend optimized for low-bandwidth cellular connections"
+        ]
+      },
+      liveUrl: "https://github.com/ravishah20003-collab/rsk",
+      githubUrl: "https://github.com/ravishah20003-collab/rsk",
+      image: "/projects/rsk-delivery.jpg",
+      fallbackImage: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80",
+      categoryBadge: "Full Stack",
+      prodBadge: "PROD",
+      metricHighlight: "Socket.IO Live Driver GPS • Razorpay & Neon DB",
       featured: true,
     },
   ] as Project[],
