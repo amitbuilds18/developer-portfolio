@@ -101,6 +101,7 @@ export const portfolioData = {
       category: "DevOps, AI & Tools",
       skills: [
         { name: "Google Gemini AI" },
+        { name: "Ollama (Local LLMs)" },
         { name: "Vapi AI (Voice Agent)" },
         { name: "Docker" },
         { name: "GitHub Actions (CI/CD)" },
@@ -259,6 +260,44 @@ export const portfolioData = {
       categoryBadge: "Full Stack",
       prodBadge: "PROD",
       metricHighlight: "500+ SKUs • Stripe Webhooks & <3s SMS Alerts",
+      featured: true,
+    },
+    {
+      id: "ai-chatbot",
+      title: "AI Chatbot — Intelligent Assistant & PDF Document Analyzer",
+      tagline: "Conversational LLM interface with Ollama integration, session memory & PDF chat",
+      description:
+        "Engineered an enterprise-grade AI chatbot platform featuring local LLM integration via Ollama, multi-session conversation history, document PDF ingestion & analysis, and strict RFC-compliant input security guards.",
+      tags: ["React 19", "Tailwind CSS", "Node.js", "Express 5", "MongoDB", "Ollama LLM", "JWT Auth", "PDF Parse", "Vite"],
+      features: [
+        "Integrated Ollama LLM endpoint streaming responses with sub-second token latency and automatic fallback timeouts",
+        "Constructed document ingestion pipeline with pdf-parse and jsPDF for interactive PDF analysis and conversation exports",
+        "Engineered token-bucket rate limiting (10 req/min auth, 50 req/min chat) mitigating DDoS and brute-force vectors",
+        "Implemented multi-tenant session isolation in MongoDB with JWT Bearer authentication and RFC-compliant validation",
+      ],
+      architecture: {
+        overview: "End-to-end full-stack conversational AI architecture with LLM inference, PDF parsing pipeline, and hardened security guards.",
+        flow: [
+          "Client Layer: React 19 + Tailwind CSS 4 + Vite (Live Markdown Streaming & PDF Uploads)",
+          "Security & Gatekeeper: In-memory Rate Limiting (10/50 req/min) & RFC-compliant Input Sanitization",
+          "Authentication: JWT Bearer Token verification with Bcrypt password hashing (10 rounds)",
+          "Inference Engine: Ollama LLM API connector with 60s timeout guards and error recovery",
+          "Data & Document Store: MongoDB / Mongoose for chat sessions + pdf-parse for text extraction"
+        ],
+        technicalHighlights: [
+          "Ollama local LLM API integration with connection pooling and resilient timeout fallbacks",
+          "Client-side Markdown rendering with syntax highlighting and instant PDF report export via jsPDF",
+          "Rate limiter middleware isolating abusive IPs with automatic in-memory sliding window eviction",
+          "End-to-end type safety and sanitized payload guards preventing prompt and script injection"
+        ]
+      },
+      liveUrl: "https://github.com/amitbuilds18/ai-chatbot",
+      githubUrl: "https://github.com/amitbuilds18/ai-chatbot",
+      image: "/projects/ai-chatbot.jpg",
+      fallbackImage: "https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=1200&q=80",
+      categoryBadge: "AI & Cloud",
+      prodBadge: "PROD",
+      metricHighlight: "Ollama LLM • PDF Document Chat & Rate-Limited APIs",
       featured: true,
     },
   ] as Project[],
