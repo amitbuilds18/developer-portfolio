@@ -334,7 +334,7 @@ export const portfolioData = {
       liveUrl: "https://github.com/ravishah20003-collab/rsk",
       githubUrl: "https://github.com/ravishah20003-collab/rsk",
       image: "/projects/rsk-delivery.jpg",
-      fallbackImage: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80",
+      fallbackImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
       categoryBadge: "Full Stack",
       prodBadge: "PROD",
       metricHighlight: "Socket.IO Live Driver GPS • Razorpay & Neon DB",
