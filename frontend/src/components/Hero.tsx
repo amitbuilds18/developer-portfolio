@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { ArrowRight, Eye, Github, Linkedin, Mail, Sparkles, Video } from "lucide-react";
+import { ArrowRight, Eye, Github, Linkedin, Mail, Sparkles, Video, Bot } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 import { ResumeModal } from "./ResumeModal";
 import { DatabaseStatusBadge } from "./DatabaseStatusBadge";
 import { VideoIntroModal } from "./VideoIntroModal";
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onOpenAi?: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onOpenAi }) => {
   const { personal, stats } = portfolioData;
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -80,6 +84,16 @@ export const Hero: React.FC = () => {
               <span>View Projects</span>
               <ArrowRight className="w-4 h-4" />
             </a>
+
+            {onOpenAi && (
+              <button
+                onClick={onOpenAi}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold bg-gradient-to-r from-indigo-950 via-purple-950/80 to-slate-900 hover:from-indigo-900 hover:to-purple-900 text-cyan-300 border border-indigo-500/50 hover:border-cyan-400 transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-indigo-950/30 cursor-pointer"
+              >
+                <Bot className="w-4 h-4 text-cyan-400 animate-pulse" />
+                <span>Ask AI Agent</span>
+              </button>
+            )}
 
             <button
               onClick={() => setIsVideoOpen(true)}

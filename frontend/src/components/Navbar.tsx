@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Share2, Check, Terminal } from "lucide-react";
+import { Menu, X, Share2, Check, Terminal, Bot } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
 interface NavbarProps {
   onOpenTerminal?: () => void;
+  onOpenAi?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenAi }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -88,6 +89,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
             )}
           </button>
 
+          {/* Ask AI Agent Button */}
+          {onOpenAi && (
+            <button
+              onClick={onOpenAi}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-950/70 hover:bg-indigo-900/80 text-cyan-300 hover:text-cyan-200 border border-indigo-500/40 hover:border-cyan-400/60 transition-all shadow-sm shadow-indigo-950/30 cursor-pointer"
+              title="Chat with Amit's AI Assistant"
+            >
+              <Bot className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Ask AI</span>
+            </button>
+          )}
+
           {/* CLI Terminal Button */}
           {onOpenTerminal && (
             <button
@@ -141,6 +154,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
               </>
             )}
           </button>
+
+          {onOpenAi && (
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                onOpenAi();
+              }}
+              className="flex items-center justify-center gap-2 w-full mt-2 px-3 py-2 rounded-lg text-sm font-semibold bg-indigo-900/50 text-cyan-300 hover:bg-indigo-800/60 transition-all border border-indigo-500/40"
+            >
+              <Bot className="w-4 h-4 text-cyan-400" />
+              <span>Ask AI Assistant</span>
+            </button>
+          )}
 
           {onOpenTerminal && (
             <button
