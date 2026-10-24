@@ -39,6 +39,7 @@ export const portfolioData = {
   personal: {
     name: "Amit Kumar Ray",
     role: "Full Stack Developer",
+    avatar: "/profile.jpg",
     tagline:
       "Architecting high-concurrency fintech platforms, AI-driven applications, and resilient cloud microservices with React 19, TypeScript, Node.js, and PostgreSQL.",
     about:

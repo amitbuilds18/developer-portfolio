@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Code2, Share2, Check, Terminal } from "lucide-react";
+import { Menu, X, Share2, Check, Terminal } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
 interface NavbarProps {
@@ -43,11 +43,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 p-[1px]">
-            <div className="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
-              <Code2 className="w-5 h-5 text-indigo-400 group-hover:text-white transition-colors" />
-            </div>
+        <a href="#" className="flex items-center gap-2.5 group">
+          <div className="relative w-9 h-9 rounded-full p-[1.5px] bg-gradient-to-tr from-indigo-500 via-purple-500 to-cyan-400 shadow-md">
+            <img
+              src={portfolioData.personal.avatar || "/profile.jpg"}
+              alt={portfolioData.personal.name}
+              className="w-full h-full object-cover rounded-full bg-slate-900 border border-slate-950 group-hover:scale-105 transition-transform"
+            />
           </div>
           <span className="font-bold text-lg tracking-tight text-white group-hover:text-indigo-300 transition-colors">
             {portfolioData.personal.name.split(" ")[0]}
