@@ -348,20 +348,29 @@ export const portfolioData = {
     {
       id: "edu-1",
       role: "Bachelor of Technology in Computer Science & Engineering",
-      organization: "Sagar Group of Institutions",
-      period: "2020 – 2024",
+      organization: "Sagar Group of Institutions (SISTec)",
+      period: "2023 – 2027",
       description:
-        "Graduated with CGPA: 7.0 / 10. Specialized in MERN & PERN stacks (React 19, Node.js, Express 5, PostgreSQL, MongoDB, TypeScript), software architecture, ACID transactions, and Docker containerization.",
+        "Pursuing B.Tech in Computer Science & Engineering (CGPA: 7.0 / 10). Specialized in MERN & PERN stacks (React 19, Node.js, Express 5, PostgreSQL, MongoDB, TypeScript), software architecture, ACID transactions, and Docker containerization.",
       technologies: ["React 19", "Node.js", "PostgreSQL", "MongoDB", "TypeScript", "Docker"],
     },
     {
       id: "edu-2",
-      role: "Senior Secondary (Class XII: 62.8%) & Secondary School (Class X: 74.6%)",
+      role: "Senior Secondary (Class XII: 62.8%)",
       organization: "State Board Education",
-      period: "2018 – 2020",
+      period: "Passing Year: 2023",
       description:
-        "Completed science and mathematics coursework with strong foundational analytical thinking and problem-solving skills.",
-      technologies: ["Mathematics", "Physics", "Computer Fundamentals"],
+        "Completed Higher Secondary education with core coursework in Physics, Chemistry, Mathematics, and Computer Science.",
+      technologies: ["Mathematics", "Physics", "Computer Science"],
+    },
+    {
+      id: "edu-3",
+      role: "Secondary School (Class X: 74.6%)",
+      organization: "State Board Education",
+      period: "Passing Year: 2021",
+      description:
+        "Completed secondary education with strong foundational analytical thinking, science, and mathematics.",
+      technologies: ["Science", "Mathematics", "Analytical Foundations"],
     },
   ] as ExperienceItem[],
 };

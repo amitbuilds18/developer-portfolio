@@ -213,11 +213,11 @@ export const KNOWLEDGE_BASE: KnowledgePattern[] = [
     response: () => ({
       text: `**Amit Kumar Ray's Educational Background:**\n\n` +
         `• **Bachelor of Technology (B.Tech) in Computer Science & Engineering**\n` +
-        `  *Sagar Group of Institutions (2020 – 2024)*\n` +
+        `  *Sagar Group of Institutions (2023 – 2027)*\n` +
         `  *CGPA*: **7.0 / 10**\n` +
         `  *Core Focus*: Full-stack software engineering, Database Management Systems (PostgreSQL, ACID), Data Structures & Algorithms, Docker containerization.\n\n` +
-        `• **Senior Secondary (Class XII)**: 62.8% (Science & Mathematics)\n` +
-        `• **Secondary School (Class X)**: 74.6%`,
+        `• **Senior Secondary (Class XII)**: 62.8% (Passing Year: 2023)\n` +
+        `• **Secondary School (Class X)**: 74.6% (Passing Year: 2021)`,
       actions: [
         { label: "📄 View Full Academic Resume", actionType: "resume" },
       ],
